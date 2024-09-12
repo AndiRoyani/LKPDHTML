@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+body {
+    background-color: rgb(90, 90, 132);
+
+}
+.cardlist {
+    border-radius: 0px 0px 25px 25px;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    width: 1200px;
+    height: 90px;
+    margin-left: 170px;
+}
+.cardlist li {
+    list-style: none;
+    padding: 40px;
+}
+
+.cardlist ul {
+    display: flex;
+}
+
+.cardlist li {
+    font-size: 20px;
+}
+
+.cardlist a {
+    text-decoration: none;
+    color: black;
+}
+.logo {
+    padding: 50px;
+    margin-left: 420px;
+    font-size: 40px;
+    font-style: italic;
+}
+
+
+.card {
+  transition: 0.3s;
+  width: 20%;
+  height: 50%;
+  width: 20%;
+  margin-left: 100px;
+  margin-top: 80px;
+  box-shadow: 15px 15px 15px 15px rgb(39, 45, 59);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(131, 90, 90, 0.2);
+}
+.container {
+  padding: 2px 16px;
+  background-color: rgb(95, 95, 242);
+}
+.semua {
+    display: flex;
+    flex-direction: row;
+}
+.boxcard {
+    display: flex;
+    flex-direction: row;
+    margin-left: 150px;
+    border-radius: 100px;
+    
+}
+h2 {
+    font-size: 70px;
+    font-style: italic;
+    text-align: center;
+    color: rgb(20, 20, 57);
+}
+
+    </style>
+</head>
+<body>
+    
+    <header>
+    <div class="semua">   
+        <div class="card1">
+            <nav class="cardlist">
+                <ul>
+                    <li><a href="">Wembley</a></li>
+                    <li><a href="">SanSiro</a></li>
+                    <li><a href="">ST.Jakob park</a></li>
+                    <li><a class="logo" href="">Stadium</a></li>
+                    
+                </ul>
+            </nav>
+
+            <h2>Buy <br>Tiket For Now<br><i class="fa-solid fa-arrow-down"></i></h2>
+            <div class="boxcard">
+            <div class="card">
+                <img src="Wembley.jpg" alt="" style="width: 100%;">
+                <div class="container">
+                    <h4><b>Stadium Wembley</b></h4>
+                    <p>Stadion sepak bola yang terletak<br> di Wembley Park, London Borough of Brent, Inggris dan merupakan kandang dari tim nasional sepak bola Inggris.<br><br> <i class="fa-solid fa-ticket"></i> : 80.000 Tiket <br>  <i class="fa-solid fa-heart"></i>  : 70.OOO</p>
+                    <button>More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="inter.jpg" alt="" style="width: 100%;">
+                <div class="container">
+                    <h4><b>Stadium San Siro</b></h4>
+                    <p>Stadion sepak bola yang terletak<br> di Wembley Park, London Borough of Brent, Inggris dan merupakan kandang dari tim nasional sepak bola Inggris.<br><br> <i class="fa-solid fa-ticket"></i> : 80.000 Tiket<br>  <i class="fa-solid fa-heart"></i>: 70.OOO</p>
+                    <button>More</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="park.jpg" alt="" style="width: 100%;">
+                <div class="container">
+                    <h4><b> Stadium ST. Jakob Park</b></h4>
+                    <p>Stadion sepak bola yang terletak<br> di Wembley Park, London Borough of Brent, Inggris dan merupakan kandang dari tim nasional sepak bola Inggris.<br><br> <i class="fa-solid fa-ticket"></i> : 80.000 Tiket<br> <i class="fa-solid fa-heart"></i>: 70.OOO</p>
+                    <button>More</button>
+                </div>
+            </div>
+        </div>
+            
+        </div>
+    </header>        
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mencari Data Tanggal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 45%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            width: 45%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #3e8e41;
+        }
+
+        .result-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="input-container">
+            <input class="input-field" type="date" name="date" id="date" />
+            <button class="submit-button" id="btn">Submit</button>
+        </div>
+
+        <div class="result-container">
+            <h5 id="result"></h5>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById("btn");
+        const date = document.getElementById("date");
+        const result = document.getElementById("result");
+
+        btn.addEventListener("click", function () {
+            if (date.value) {
+                const dateObj = new Date(date.value); // Membuat objek dari input date
+                const options = { year: "numeric", month: "long", day: "numeric" }; // Mengatur format tanggal
+                const formattedDate = dateObj.toLocaleDateString("id-ID", options); // Mengubah bahasa menjadi Indonesia
+
+                result.innerHTML = `Mencari data tanggal :
+                <span style="color: blue;">${formattedDate}</span>`;
+            } else {
+                result.innerHTML = "Tidak ada data...";
+            }
+        });
+    </script>
+
+</body>
+</html>

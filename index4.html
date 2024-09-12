@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .image {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            display: none;
+        }
+
+        .image.show {
+            display: block;
+        }
+
+        .label-container {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        .persegi {
+            width: 200px;
+            height: 200px;
+        }
+
+        .lingkaran {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+
+        .segitiga {
+            width: 200px;
+            height: 200px;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            background-size: cover;
+        }
+
+        .merah {
+            border: 10px solid red;
+        }
+
+        .kuning {
+            border: 10px solid yellow;
+        }
+
+        .hijau {
+            border: 10px solid green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <div class="image show" id="imginter" style="display:block;">
+            <img class="persegi" src="inter.jpg" alt="">
+        </div>
+        <div class="image" id="imgpark" style="display:none;">
+            <img class="persegi" src="park.jpg" alt="">
+        </div>
+        <div class="image" id="imgwembley" style="display:none;">
+            <img class="persegi" src="wembley.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="label-container">
+        <label for="">Ubah Gambar :</label>
+        <select onchange="changelabel(this)" name="image" id="image">
+            <option value="inter" class="persegi">San Siro Stadium</option>
+            <option value="park" class="persegi">ST.Jakob Park Stadium</option>
+            <option value="wembley" class="persegi">Wembley Stadium</option>
+        </select>
+
+        <label for="">Ubah Bentuk :</label>
+        <select onchange="changelabel(this)" name="bentuk" id="bentuk">
+            <option value="persegi" class="persegi">persegi</option>
+            <option value="lingkaran" class="lingkaran">lingkaran</option>
+            <option value="segitiga" class="segitiga">segitiga</option>
+        </select>
+
+        <label for="">Ubah Warna :</label>
+        <select onchange="changelabel(this)" name="warna" id="warna">
+            <option value="Merah" class="merah">Merah</option>
+            <option value="kuning" class="kuning">Kuning</option>
+            <option value="hijau" class="hijau">Hijau</option>
+        </select>
+
+        <button>Kirim</button>
+    </div>
+
+    <script>
+        function changelabel(e) {
+            let takeImage = document.querySelectorAll('.image');
+            if(e.value == 'inter') {
+                document.getElementById('imginter').style.display = 'block';
+                document.getElementById('imgpark').style.display = 'none';
+                document.getElementById('imgwembley').style.display = 'none';
+            }else if (e.value == 'park') {
+                document.getElementById('imginter').style.display = 'none';
+                document.getElementById('imgpark').style.display = 'block';
+                document.getElementById('imgwembley').style.display = 'none';
+            }else if (e.value == 'wembley') {
+                document.getElementById('imginter').style.display = 'none';
+                document.getElementById('imgpark').style.display = 'none';
+                document.getElementById('imgwembley').style.display = 'block';
+            }
+
+            if(e.value == 'lingkaran'){
+                document.querySelectorAll('.image').forEach(function(img) {
+                    img.classList.add('lingkaran');
+                    img.classList.remove('persegi', 'segitiga');
+                });
+            }else if(e.value == 'persegi'){
+                document.querySelectorAll('.image').forEach(function(img) {
+                    img.classList.add('persegi');
+                    img.classList.remove('lingkaran', 'segitiga');
+                });
+            }else if(e.value == 'segitiga'){ 
+                document.querySelectorAll('.image').forEach(function(img) {
+                    img.classList.add('segitiga');
+                    img.classList.remove('lingkaran', 'persegi');
+                });
+            }
+
+            if(e.value == 'merah'){
+                document.querySelectorAll('.image').forEach(function(img) {
+                    img.classList.add('merah');
+                    img.classList.remove('kuning', 'hijau');
+                });
+            }else if(e.value == 'kuning'){
+                document.querySelectorAll('.image').forEach(function(img) {
+                    img.classList.add('kuning');
+                    img.classList.remove('merah', 'hijau');
+                });
+            }else if(e.value == 'hijau'){
+                document.querySelectorAll('.image').forEach(function(img) {
+                    img.classList.add('hijau');
+                    img.classList.remove('merah', 'kuning');
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count Down</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            width: 45%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #start-button {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        
+        #start-button:hover {
+            background-color: #3e8e41;
+        }
+        
+        #pause-button {
+            background-color: #f44336;
+            color: #fff;
+        }
+        
+        #pause-button:hover {
+            background-color: #e91e63;
+        }
+        
+        #countdown {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        #time-up-message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f44336;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Count Down dari 10 Detik</h1>
+
+        <!-- Tombol Start -->
+        <div class="button-container">
+            <button id="start-button">Start</button>
+            <button id="pause-button" disabled>Pause</button>
+        </div>
+
+        <!-- Div untuk menampilkan waktu -->
+        <div id="countdown"></div>
+
+        <!-- Div untuk menampilkan pesan waktu habis -->
+        <div id="time-up-message" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Variabel untuk menyimpan waktu
+        let time = 10;
+
+        // Fungsi untuk memperbarui waktu
+        function updateCountdown() {
+            // Mengubah waktu menjadi string
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+
+            // Menampilkan waktu dalam format mm:ss
+            document.getElementById('countdown').innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+            // Mengurangi waktu
+            time--;
+
+            // Jika waktu mencapai 0, menghentikan fungsi updateCountdown dan menampilkan pesan waktu habis
+            if (time < 0) {
+                clearInterval(intervalId);
+                document.getElementById('pause-button').disabled = true;
+                document.getElementById('start-button').disabled = false;
+                document.getElementById('time-up-message').style.display = 'block';
+                document.getElementById('time-up-message').innerText = 'Waktumu habis!';
+            }
+        }
+
+        // Mengatur interval untuk memperbarui waktu setiap detik
+        let intervalId;
+
+        // Fungsi untuk mengaktifkan counter down
+        function startCountdown() {
+            if (time > 0) {
+                intervalId = setInterval(updateCountdown, 1000);
+                document.getElementById('pause-button').disabled = false;
+                document.getElementById('start-button').disabled = true;
+            } else {
+                alert("Waktu sudah habis!");
+            }
+        }
+
+        // Fungsi untuk menghentikan counter down
+        function pauseCountdown() {
+            clearInterval(intervalId);
+            document.getElementById('pause-button').disabled = true;
+            document.getElementById('start-button').disabled = false;
+        }
+
+        // Menambahkan event listener pada tombol start
+        document.getElementById('start-button').addEventListener('click', startCountdown);
+
+        // Menambahkan event listener pada tombol pause
+        document.getElementById('pause-button').addEventListener('click', pauseCountdown);
+
+        // Memanggil fungsi updateCountdown untuk memulai count down secara otomatis jika tombol tidak diklik
+        updateCountdown();
+    </script>
+
+</body>
+</html>

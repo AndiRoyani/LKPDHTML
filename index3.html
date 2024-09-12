@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider Checkbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .ubah {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-right: 20px;
+        }
+
+        .ubah input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: yellow;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .ubah input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        .ubah input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        .ubah input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* Merah */
+        .slider2 {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider2:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 30px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .Andi:checked + .slider2 {
+            background-color: #f32121;
+        }
+
+        .Andi:focus + .slider2 {
+            box-shadow: 0 0 1px #f32121;
+        }
+
+        .Andi:checked + .slider2:before {
+            transform: translateX(-26px);
+        }
+
+        .slider2.round {
+            border-radius: 34px;
+        }
+
+        .slider2.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Bikini Button</h2>
+
+    <div class="container">
+        <label class="ubah">
+            <input class="Andi" type="checkbox" checked>
+            <span class="slider2 round"></span>
+        </label>
+
+        <label class="ubah">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+</body>
+</html>
